@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-fcy@&t$44mnohau0#9y2eb3$5x0d!24c0(o3oqb1_2p$10tx_n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['mkm-portfolio.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -46,7 +46,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'static/templates'],
+        'DIRS': [BASE_DIR / 'static/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -107,7 +107,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 
 # Default primary key field type
@@ -118,5 +118,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [ BASE_DIR / 'static']
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [ BASE_DIR / 'static/']
