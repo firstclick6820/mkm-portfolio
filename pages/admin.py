@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Links, Profile
+from .models import Links, Profile, Fact, Skill
 
 
 # Register your models here.
@@ -15,3 +15,17 @@ class ProfileAdmin(admin.ModelAdmin):
   
 admin.site.register(Profile, ProfileAdmin)
     
+    
+    
+class FactAdmin(admin.ModelAdmin):
+    list_display = ['title']
+
+
+admin.site.register(Fact, FactAdmin)
+
+
+
+class SkillAdmin(admin.ModelAdmin):
+    list_display= ['title']
+    
+admin.site.register(Skill, SkillAdmin)

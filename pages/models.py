@@ -58,3 +58,37 @@ class Profile(models.Model):
         return today.year - self.birth.year
     
     
+    
+    
+class Fact(models.Model):
+    title = models.CharField(max_length=50)
+    sub_titel = models.CharField(max_length=32)
+    emoji = models.CharField(max_length=50)
+    volume = models.IntegerField()
+    description = models.TextField()
+        
+        
+        
+    def __str__(self):
+        return self.title
+        
+        
+    
+    
+
+
+
+class Skill(models.Model):
+    title = models.CharField(max_length=100)
+    volume = models.IntegerField()
+    description = models.TextField()
+    
+    
+    
+    def __str__(self):
+        return self.title
+    
+    
+    
+    class Meta:
+        ordering=['-title']
