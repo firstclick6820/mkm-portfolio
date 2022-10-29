@@ -169,14 +169,15 @@
 
 
               {% comment %} Courses {% endcomment %}
-                <h3 class="resume-title">Courses</h3>
-                {% for education in educations %}
+                <h3 class="resume-title">Certificates</h3>
+                {% for certificate in certificates %}
                   <div class="resume-item">
-                    <h4>{{ education.degree }}</h4>
-                    <p>{{ education.field_study }} - Grade: {{ education.grade }}</p>
-                    <h5>{{ education.started_year.year }} - {{ education.ended_year.year }}</h5>
-                    <p><em>{{ education.school }}</em></p>
-                    <p>{{ education.description }}</p>
+                    <h5>{{ certificate.title }}</h5>
+                    <p>Subject: {{ certificate.subject }}</p>
+                    <h6>Issued Date: {{ certificate.issued_date }}</h6>
+                    <p><em>Organized By: {{ certificate.organized }}</em></p>
+                    <a href="{{ certificate.link  }}" class='text-success'><i class="bx bxs-star bx-spin"></i>Credentail</a>
+                 
                   </div>
                 {% endfor %}
               {% comment %} End Courses {% endcomment %}
@@ -469,19 +470,21 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                {% for addr in addresses %}
+                  <p>{{addr.current_address}}, {{ addr.current_coutnry}}</p>
+                {% endfor %}
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>{{ profile.email }}</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
+                <p>{{ profile.mobile }}</p>
               </div>
 
               <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>

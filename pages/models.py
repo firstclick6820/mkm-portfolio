@@ -118,7 +118,8 @@ class Education(models.Model):
         return self.degree
     
     
-    
+    class Meta:
+        ordering=['-ended_year']
     
 class Address(models.Model):
     current_address = models.CharField(max_length=255)
@@ -174,3 +175,29 @@ class Experience(models.Model):
     
     class Meta:
         ordering =['-start_date']
+        
+        
+        
+class Certificates(models.Model):
+    CERTIFICATES_COMPLETED = 'Completed'
+    CERTIFICATES_IN_PROGRESS = 'In Progress'
+    
+    CERTIFICATES_CHOICES = {
+        ('Completed', CERTIFICATES_COMPLETED),
+        ('In Progress', CERTIFICATES_IN_PROGRESS),
+    }
+    
+    
+    title = models.CharField(max_length=200)
+    subject = models.CharField(max_length=200)
+    status = models.CharField(max_length=100, choices=CERTIFICATES_CHOICES, default=CERTIFICATES_COMPLETED)
+    issued_date = models.DateField(blank=True, null=True)
+    expiry_date = models.DateField(blank=True, null=True)
+    link = models.URLField(max_length=200, blank=True, null=True)
+    organized = models.CharField(max_length=200)
+    
+    
+    def __str__(self):
+        return self.title
+    
+    

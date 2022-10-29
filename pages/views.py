@@ -13,7 +13,7 @@ def index(request):
     education = models.Education.objects.all()
     address = models.Address.objects.all()
     experiences = models.Experience.objects.all()
-    
+    certificates = models.Certificates.objects.all()
     context = {
         'links': social_links,
         'profile': profile,
@@ -21,7 +21,8 @@ def index(request):
         'skills': skills,
         'educations': education,
         'addresses': address,
-        'experiences':experiences
+        'experiences':experiences,
+        'certificates': certificates,
         
     }
     return render(request,'pages/index.html', context=context)

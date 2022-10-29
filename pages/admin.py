@@ -1,5 +1,14 @@
 from django.contrib import admin
-from .models import Links, Profile, Fact, Skill, Education, Address, Experience
+from .models import (
+    Links, 
+    Profile, 
+    Fact, 
+    Skill, 
+    Education, 
+    Address, 
+    Experience, 
+    Certificates
+    )
 
 
 # Register your models here.
@@ -56,3 +65,12 @@ class ExperienceAdmin(admin.ModelAdmin):
     
     
 admin.site.register(Experience, ExperienceAdmin)
+
+
+
+
+class CertificatesAdmin(admin.ModelAdmin):
+    list_display = ['title']
+    
+    
+admin.site.register(Certificates,CertificatesAdmin)
