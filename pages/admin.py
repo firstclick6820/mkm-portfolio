@@ -7,7 +7,8 @@ from .models import (
     Education, 
     Address, 
     Experience, 
-    Certificates
+    Certificates,
+    Service
     )
 
 
@@ -74,3 +75,12 @@ class CertificatesAdmin(admin.ModelAdmin):
     
     
 admin.site.register(Certificates,CertificatesAdmin)
+
+
+
+
+class ServiceAdmin(admin.ModelAdmin):
+    list_display = ['title']
+    
+    
+admin.site.register(Service,ServiceAdmin)

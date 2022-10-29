@@ -14,6 +14,7 @@ def index(request):
     address = models.Address.objects.all()
     experiences = models.Experience.objects.all()
     certificates = models.Certificates.objects.all()
+    services = models.Service.objects.all()
     context = {
         'links': social_links,
         'profile': profile,
@@ -23,6 +24,7 @@ def index(request):
         'addresses': address,
         'experiences':experiences,
         'certificates': certificates,
+        'services': services,
         
     }
     return render(request,'pages/index.html', context=context)

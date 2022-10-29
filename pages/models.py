@@ -201,3 +201,15 @@ class Certificates(models.Model):
         return self.title
     
     
+    
+    
+class Service(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    icon_text = models.CharField(max_length=200)
+    
+    
+    
+    
+    def __str__(self):
+        return self.title
