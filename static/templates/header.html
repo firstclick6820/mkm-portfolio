@@ -6,7 +6,7 @@
 
       <div class="profile">
         <img src="{% static 'img/profile-img.jpg' %}" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="{% url 'home_page' %}">MOH KHALID MOMAND</a></h1>
+        <h1 class="text-light"><a href="{% url 'home_page' %}">{{ profile.full_name|default:'MOH KHALID MOMAND' }}</a></h1>
 
         
         <div class="social-links mt-3 text-center">

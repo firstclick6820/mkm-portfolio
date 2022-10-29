@@ -32,12 +32,15 @@ class Profile(models.Model):
         ('Not Available', FREELANCE_NOT_AVIALABLE),
     }
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
+    first_name  = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=100)
     
     birth = models.DateField(null=True, blank=True)
     country = models.CharField(max_length=50)
     city  = models.CharField(max_length=50)
     mobile = models.CharField(max_length=50)
     email = models.EmailField(max_length=200)
+    summary = models.TextField()
     bio = models.CharField(max_length=200)
     profession = models.CharField(max_length=255, blank=True, null=True)
     website= models.URLField(max_length=255, blank=True, null=True)
@@ -49,6 +52,9 @@ class Profile(models.Model):
     
     def __str__(self):
         return self.user.username
+    
+    def full_name(self):
+        return self.first_name + " " + self.last_name
     
     
 
