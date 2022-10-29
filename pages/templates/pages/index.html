@@ -137,47 +137,67 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
-            <h3 class="resume-title">Sumary</h3>
-            <div class="resume-item pb-0">
-              <h4>{{ profile.full_name }}</h4>
-              <p><em>{{ profile.summary }}</em></p>
-              <ul>
-                {% for addr in addresses %}
-                  <li>{{ addr.current_address }}, {{ addr.current_city }}, {{ addr.current_coutnry }}</li>
+            <div class="col-lg-6" data-aos="fade-up">
+
+              {% comment %} Summary Section {% endcomment %}
+              <h3 class="resume-title">Sumary</h3>
+              <div class="resume-item pb-0">
+                <h4>{{ profile.full_name }}</h4>
+                <p><em>{{ profile.summary }}</em></p>
+                <ul>
+                  {% for addr in addresses %}
+                    <li>{{ addr.current_address }}, {{ addr.current_city }}, {{ addr.current_coutnry }}</li>
+                  {% endfor %}
+                    <li>{{ profile.mobile }}</li>
+                    <li>{{ profile.email }}</li>
+                </ul>
+              </div>
+              {% comment %} Summary Section End {% endcomment %}
+
+              {% comment %} Education Section {% endcomment %}
+              <h3 class="resume-title">Education</h3>
+              {% for education in educations %}
+                <div class="resume-item">
+                  <h4>{{ education.degree }}</h4>
+                  <p>{{ education.field_study }} - Grade: {{ education.grade }}</p>
+                  <h5>{{ education.started_year.year }} - {{ education.ended_year.year }}</h5>
+                  <p><em>{{ education.school }}</em></p>
+                  <p>{{ education.description }}</p>
+                </div>
+              {% endfor %}
+              {% comment %} Education Section End {% endcomment %}
+
+
+              {% comment %} Courses {% endcomment %}
+                <h3 class="resume-title">Courses</h3>
+                {% for education in educations %}
+                  <div class="resume-item">
+                    <h4>{{ education.degree }}</h4>
+                    <p>{{ education.field_study }} - Grade: {{ education.grade }}</p>
+                    <h5>{{ education.started_year.year }} - {{ education.ended_year.year }}</h5>
+                    <p><em>{{ education.school }}</em></p>
+                    <p>{{ education.description }}</p>
+                  </div>
                 {% endfor %}
-                  <li>{{ profile.mobile }}</li>
-                  <li>{{ profile.email }}</li>
-                
-              </ul>
+              {% comment %} End Courses {% endcomment %}
             </div>
 
-            <h3 class="resume-title">Education</h3>
-            {% for education in educations %}
-            <div class="resume-item">
-              <h4>{{ education.degree }}</h4>
-              <p>{{ education.field_study }} - Grade: {{ education.grade }}</p>
-              <h5>{{ education.started_year.year }} - {{ education.ended_year.year }}</h5>
-              <p><em>{{ education.school }}</em></p>
-              <p>{{ education.description }}</p>
-            </div>
-            {% endfor %}
-          </div>
 
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Professional Experience</h3>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="resume-title">Professional Experience</h3>
+              
+              {% for experience in experiences %}
+              <div class="resume-item">
+                <h4>{{ experience.title }}</h4>
+                <h5>{{experience.start_date.year }} - {{ experience.end_date.year }}</h5>
+                <h6><em>{{ experience.company_name }}</em></h6>
+                <p><em>{{ experience.location }}</em></p>
+                <pre>{{experience.description }}</pre>
+              </div>
+              {% endfor %}
             
-            {% for experience in experiences %}
-            <div class="resume-item">
-              <h4>{{ experience.title }}</h4>
-              <h5>{{experience.start_date.year }} - {{ experience.end_date.year }}</h5>
-              <p><em>{{ experience.location }}</em></p>
-              <pre>{{experience.description }}</pre>
             </div>
-            {% endfor %}
-           
-          </div>
+
         </div>
 
       </div>
